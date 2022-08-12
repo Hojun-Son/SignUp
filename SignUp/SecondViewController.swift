@@ -19,6 +19,16 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 //    @IBAction func touchUpSelectImage(_ sender: UIImageView) {
 //        self.present(self.imagePicker,animated: true, completion: nil)
 //    }
+    @IBOutlet weak var idFeild: UITextField!
+    @IBOutlet weak var passwordFeild: UITextField!
+    @IBOutlet weak var passwordCheckFeild: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
+   
+    @IBAction func touchUpNextButton(_ sender: UIButton) {
+        UserInformation.shared.id = idFeild.text
+        UserInformation.shared.password = passwordFeild.text
+    }
+    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         self.present(self.imagePicker,animated: true,completion: nil)
     }
@@ -26,10 +36,13 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        nextButton.isEnabled = false
         
+        //gestureRecognizer로 이미지뷰 설정
         let tapImageViewRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapImageViewRecognizer)
+        
     }
     @IBAction func popToFirst() {
         self.navigationController?.popViewController(animated: true)
@@ -41,6 +54,9 @@ class SecondViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let originalImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{self.imageView.image = originalImage}
         self.dismiss(animated: true, completion: nil)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField){
+        if idFeild
     }
     
     /*

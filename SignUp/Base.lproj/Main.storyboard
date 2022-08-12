@@ -115,7 +115,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="다음"/>
                                 <connections>
-                                    <segue destination="SUG-ME-xfY" kind="show" id="eCk-Ys-cso"/>
+                                    <action selector="touchUpNextButton:" destination="Dgs-V9-ZB9" eventType="touchUpInside" id="TsH-w3-WE2"/>
+                                    <segue destination="SUG-ME-xfY" kind="push" id="Gz6-gA-jon"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5I-wN-JVr">
@@ -150,7 +151,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="PW3-Qq-Gwu"/>
                     <connections>
+                        <outlet property="idFeild" destination="3W6-kl-oLc" id="eON-KV-lRr"/>
                         <outlet property="imageView" destination="4fz-OR-4Eg" id="eSD-QT-bcy"/>
+                        <outlet property="nextButton" destination="7nj-5O-Mic" id="zzK-BR-29p"/>
+                        <outlet property="passwordCheckFeild" destination="Naa-YJ-mcD" id="i6a-qQ-ytC"/>
+                        <outlet property="passwordFeild" destination="RPi-y7-f0R" id="Nd4-qP-BGs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDj-z1-q93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
